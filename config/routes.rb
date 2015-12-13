@@ -1,3 +1,4 @@
 Rails.application.routes.draw do
-  resources :articles, :users
+   resources :finances
+   resources :articles, :users
 end
