@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
   resources :finances
-  resources :articles, :users
+
+  root to: "articles#index"
+  get "articles/new"
+  get "users/signin"
+  get "users/index"
 end
