@@ -1,0 +1,5 @@
+<% provide(:title, "Users list") %>
+<% @users.each do |user|%>
+
+<h3>Welcome, <%= user.username%></h3>
+<% end %>
