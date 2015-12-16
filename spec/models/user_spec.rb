@@ -1,7 +1,7 @@
 require "rails_helper"
 
 RSpec.describe User, type: :model do
-  user = User.create!(name: "Me", email: "danijuyusuf@mail.com")
+  user = User.new(name: "Me", email: "danijuyusuf@mail.com")
   context "User" do
     it "returns true if user is valid" do
       expect(user.valid?).to be true
@@ -23,6 +23,18 @@ RSpec.describe User, type: :model do
 
     it "has email of length less than 30" do
       expect(user.email.length).to be <= 30
+    end
+
+    it "has unique email" do
+      duplicate_user = user.dup
+      duplicate_user_email = user.email
+      expect(duplicate_user.valid?).to be false
+    end
+
+    it "has unique email" do
+      duplicate_user = user.dup
+      duplicate_user_email = user.email.upcase
+      expect(duplicate_user.valid?).to be false
     end
 
     # it "accepts only valid emails" do
