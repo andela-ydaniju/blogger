@@ -1,7 +1,8 @@
 require "rails_helper"
 
 RSpec.describe User, type: :model do
-  user = User.new(name: "Me", email: "danijuyusuf@mail.com")
+  user = User.new(name: "Me", email: "danijuyusuf@mail.com", password: "foobar",
+   password_confirmation: "foobar")
   context "User" do
     it "returns true if user is valid" do
       expect(user.valid?).to be true
